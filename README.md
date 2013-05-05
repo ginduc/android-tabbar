@@ -8,7 +8,7 @@ Dev Notes
 `mvn clean package`
 
 
-Use Eclipse (3.6.x / Indigo)
+Use Eclipse (3.7.x / Indigo)
 ------------
 
 1. Install Android Maven Connector in Eclipse:
