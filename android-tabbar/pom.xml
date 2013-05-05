@@ -21,6 +21,16 @@
 			<artifactId>android</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+    	<groupId>com.google.android</groupId>
+      <artifactId>support-v4</artifactId>
+      <version>r12</version>
+    </dependency>
+		<dependency>
+  		<groupId>com.jakewharton</groupId>
+  		<artifactId>butterknife</artifactId>
+  		<version>1.3.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
