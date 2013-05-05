@@ -3,8 +3,8 @@
     <item
         android:state_selected="true"
         android:state_pressed="false"
-        android:drawable="@drawable/apple_selected" />
+        android:drawable="@drawable/icon_megaphone" />
  
     <item
-        android:drawable="@drawable/apple_unselected" />
+        android:drawable="@drawable/icon_megaphone" />
 </selector>

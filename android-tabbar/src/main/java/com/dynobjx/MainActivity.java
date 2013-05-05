@@ -69,29 +69,29 @@ public class MainActivity extends SherlockFragmentActivity {
         /** Setting tabchangelistener for the tab */
         tHost.setOnTabChangedListener(tabChangeListener);
  
-        /** Defining tab builder for Andriod tab */
-        TabHost.TabSpec tSpecAndroid = tHost.newTabSpec("android");
-        tSpecAndroid.setIndicator("",getResources().getDrawable(R.drawable.tabone));
-        tSpecAndroid.setContent(new TabContent(getBaseContext()));
-        tHost.addTab(tSpecAndroid);
- 
         /** Defining tab builder for Apple tab */
         TabHost.TabSpec tSpecApple = tHost.newTabSpec("apple");
-        tSpecApple.setIndicator("",getResources().getDrawable(R.drawable.tabtwo));
+        tSpecApple.setIndicator("",getResources().getDrawable(R.drawable.btn_toprated));
         tSpecApple.setContent(new TabContent(getBaseContext()));
         tHost.addTab(tSpecApple);
-        
-        /** Defining tab builder for Apple tab */
-        TabHost.TabSpec settingsTab = tHost.newTabSpec("Settings");
-        settingsTab.setIndicator("", getResources().getDrawable(R.drawable.btn_settings));
-        settingsTab.setContent(new TabContent(getBaseContext()));
-        tHost.addTab(settingsTab);
         
         /** Defining tab builder for Apple tab */
         TabHost.TabSpec searchTab = tHost.newTabSpec("Search");
         searchTab.setIndicator("",getResources().getDrawable(R.drawable.btn_search));
         searchTab.setContent(new TabContent(getBaseContext()));
         tHost.addTab(searchTab);
+        
+        /** Defining tab builder for Andriod tab */
+        TabHost.TabSpec tSpecAndroid = tHost.newTabSpec("android");
+        tSpecAndroid.setIndicator("",getResources().getDrawable(R.drawable.tabone));
+        tSpecAndroid.setContent(new TabContent(getBaseContext()));
+        tHost.addTab(tSpecAndroid);
+        
+        /** Defining tab builder for Apple tab */
+        TabHost.TabSpec settingsTab = tHost.newTabSpec("Settings");
+        settingsTab.setIndicator("", getResources().getDrawable(R.drawable.btn_settings));
+        settingsTab.setContent(new TabContent(getBaseContext()));
+        tHost.addTab(settingsTab);
         
         /** Defining tab builder for Apple tab */
         TabHost.TabSpec favoritesTab = tHost.newTabSpec("Faves");
