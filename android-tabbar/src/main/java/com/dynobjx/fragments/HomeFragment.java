@@ -22,7 +22,8 @@ public class HomeFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
  
         /** Creating array adapter to set data in listview */
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_multiple_choice, android_versions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), 
+        		android.R.layout.simple_list_item_multiple_choice, android_versions);
  
         /** Setting the array adapter to the listview */
         setListAdapter(adapter);

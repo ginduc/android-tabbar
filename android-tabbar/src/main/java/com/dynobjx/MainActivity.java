@@ -1,7 +1,5 @@
 package com.dynobjx;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import butterknife.InjectView;
@@ -28,7 +26,6 @@ public class MainActivity extends SherlockFragmentActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.app_name);
         actionBar.setDisplayShowHomeEnabled(false);
-        //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF0000")));
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
         actionBar.setCustomView(R.layout.custom_actionbar);
         
@@ -44,6 +41,15 @@ public class MainActivity extends SherlockFragmentActivity {
                 FavoritesFragment.class, null);
 
         ftabHost.setCurrentTabByTag("Home");
+        
+        for (int ctr = 0; ctr < ftabHost.getTabWidget().getChildCount(); ctr++) {
+        	//if(ctr != 2) {
+        		ftabHost.getTabWidget().getChildAt(ctr).getLayoutParams().height = 130;
+        	//}
+        }
+
+        //ftabHost.getTabWidget().getChildAt(2).getLayoutParams().width = 136;
+        //ftabHost.getTabWidget().getChildAt(2).getLayoutParams().height = 134;
     }
 
 }
