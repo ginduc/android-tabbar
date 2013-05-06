@@ -78,10 +78,10 @@ public class MainActivity extends SherlockFragmentActivity implements OnTabChang
     }
     
     private void addTab(String label, Drawable d) {
-    	TabHost.TabSpec favoritesTab = tabHost.newTabSpec(label);
-        favoritesTab.setIndicator(null, d);
-        favoritesTab.setContent(new TabContent(getBaseContext()));
-        tabHost.addTab(favoritesTab);
+    	TabHost.TabSpec tab = tabHost.newTabSpec(label);
+    	tab.setIndicator(null, d);
+    	tab.setContent(new TabContent(getBaseContext()));
+        tabHost.addTab(tab);
     }
 
 }
