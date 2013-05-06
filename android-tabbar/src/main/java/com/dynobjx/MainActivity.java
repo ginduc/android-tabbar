@@ -1,5 +1,7 @@
 package com.dynobjx;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import butterknife.InjectView;
@@ -26,6 +28,9 @@ public class MainActivity extends SherlockFragmentActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.app_name);
         actionBar.setDisplayShowHomeEnabled(false);
+        //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF0000")));
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+        actionBar.setCustomView(R.layout.custom_actionbar);
         
         ftabHost.addTab(ftabHost.newTabSpec("Top").setIndicator(null, getResources().getDrawable(R.drawable.btn_toprated)),
                 TopRatedFragment.class, null);
