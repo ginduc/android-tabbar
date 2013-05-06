@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class TabTwoFragment extends ListFragment {
+public class TopRatedFragment extends ListFragment {
 	/** An array of items to display in ArrayList */
     String apple_versions[] = new String[]{
         "Mountain Lion",

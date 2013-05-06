@@ -1,4 +1,4 @@
-package com.dynobjx.fragments;
+package com.dynobjx;
 
 import android.content.Context;
 import android.view.View;

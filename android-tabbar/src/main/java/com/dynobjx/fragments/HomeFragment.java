@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class TabOneFragment extends ListFragment {
+public class HomeFragment extends ListFragment {
 	/** An array of items to display in ArrayList */
     String android_versions[] = new String[]{
         "Jelly Bean",

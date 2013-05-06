@@ -2,36 +2,34 @@ package com.dynobjx;
 
 import android.os.Bundle;
 import android.widget.TabHost;
+import butterknife.InjectView;
+import butterknife.Views;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.dynobjx.fragments.TabContent;
-import com.dynobjx.fragments.TabOneFragment;
-import com.dynobjx.fragments.TabTwoFragment;
+import com.dynobjx.fragments.HomeFragment;
+import com.dynobjx.fragments.TopRatedFragment;
 
 public class MainActivity extends SherlockFragmentActivity {
-	TabHost tHost;
+	@InjectView(android.R.id.tabhost) TabHost tHost;
 	 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Views.inject(this);
+        tHost.setup();
         
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("OnTheMoney");
         actionBar.setDisplayShowHomeEnabled(false);
- 
-        tHost = (TabHost) findViewById(android.R.id.tabhost);
-        tHost.setup();
- 
-        /** Defining Tab Change Listener event. This is invoked when tab is changed */
+
         TabHost.OnTabChangeListener tabChangeListener = new TabHost.OnTabChangeListener() {
- 
             @Override
             public void onTabChanged(String tabId) {
                 android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-                TabOneFragment androidFragment = (TabOneFragment) fm.findFragmentByTag("android");
-                TabTwoFragment appleFragment = (TabTwoFragment) fm.findFragmentByTag("apple");
+                HomeFragment androidFragment = (HomeFragment) fm.findFragmentByTag("Home");
+                TopRatedFragment appleFragment = (TopRatedFragment) fm.findFragmentByTag("Top");
                 android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
  
                 /** Detaches the androidfragment if exists */
@@ -47,7 +45,7 @@ public class MainActivity extends SherlockFragmentActivity {
  
                     if(androidFragment==null){
                         /** Create AndroidFragment and adding to fragmenttransaction */
-                        ft.add(R.id.realtabcontent,new TabOneFragment(), "android");
+                        ft.add(R.id.realtabcontent,new HomeFragment(), "android");
                     }else{
                         /** Bring to the front, if already exists in the fragmenttransaction */
                         ft.attach(androidFragment);
@@ -56,7 +54,7 @@ public class MainActivity extends SherlockFragmentActivity {
                 }else{    /** If current tab is apple */
                     if(appleFragment==null){
                         /** Create AppleFragment and adding to fragmenttransaction */
-                        ft.add(R.id.realtabcontent,new TabTwoFragment(), "apple");
+                        ft.add(R.id.realtabcontent,new TopRatedFragment(), "apple");
                      }else{
                         /** Bring to the front, if already exists in the fragmenttransaction */
                         ft.attach(appleFragment);
@@ -65,35 +63,28 @@ public class MainActivity extends SherlockFragmentActivity {
                 ft.commit();
             }
         };
- 
-        /** Setting tabchangelistener for the tab */
         tHost.setOnTabChangedListener(tabChangeListener);
  
-        /** Defining tab builder for Apple tab */
-        TabHost.TabSpec tSpecApple = tHost.newTabSpec("apple");
-        tSpecApple.setIndicator("",getResources().getDrawable(R.drawable.btn_toprated));
-        tSpecApple.setContent(new TabContent(getBaseContext()));
-        tHost.addTab(tSpecApple);
+        TabHost.TabSpec topTab = tHost.newTabSpec("Top");
+        topTab.setIndicator(null,getResources().getDrawable(R.drawable.btn_toprated));
+        topTab.setContent(new TabContent(getBaseContext()));
+        tHost.addTab(topTab);
         
-        /** Defining tab builder for Apple tab */
         TabHost.TabSpec searchTab = tHost.newTabSpec("Search");
-        searchTab.setIndicator("",getResources().getDrawable(R.drawable.btn_search));
+        searchTab.setIndicator(null,getResources().getDrawable(R.drawable.btn_search));
         searchTab.setContent(new TabContent(getBaseContext()));
         tHost.addTab(searchTab);
         
-        /** Defining tab builder for Andriod tab */
-        TabHost.TabSpec tSpecAndroid = tHost.newTabSpec("android");
-        tSpecAndroid.setIndicator("",getResources().getDrawable(R.drawable.tabone));
+        TabHost.TabSpec tSpecAndroid = tHost.newTabSpec("Home");
+        tSpecAndroid.setIndicator(null,getResources().getDrawable(R.drawable.btn_home));
         tSpecAndroid.setContent(new TabContent(getBaseContext()));
         tHost.addTab(tSpecAndroid);
         
-        /** Defining tab builder for Apple tab */
         TabHost.TabSpec settingsTab = tHost.newTabSpec("Settings");
-        settingsTab.setIndicator("", getResources().getDrawable(R.drawable.btn_settings));
+        settingsTab.setIndicator(null, getResources().getDrawable(R.drawable.btn_settings));
         settingsTab.setContent(new TabContent(getBaseContext()));
         tHost.addTab(settingsTab);
         
-        /** Defining tab builder for Apple tab */
         TabHost.TabSpec favoritesTab = tHost.newTabSpec("Faves");
         favoritesTab.setIndicator(null,getResources().getDrawable(R.drawable.btn_favorites));
         favoritesTab.setContent(new TabContent(getBaseContext()));
