@@ -2,6 +2,9 @@ package com.dynobjx;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import butterknife.InjectView;
 import butterknife.Views;
 
@@ -15,6 +18,7 @@ import com.dynobjx.fragments.TopRatedFragment;
 
 public class MainActivity extends SherlockFragmentActivity {
 	@InjectView(android.R.id.tabhost) FragmentTabHost ftabHost;
+	@InjectView(R.id.homebutton) Button homeButton;
 	 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,13 +47,15 @@ public class MainActivity extends SherlockFragmentActivity {
         ftabHost.setCurrentTabByTag("Home");
         
         for (int ctr = 0; ctr < ftabHost.getTabWidget().getChildCount(); ctr++) {
-        	//if(ctr != 2) {
-        		ftabHost.getTabWidget().getChildAt(ctr).getLayoutParams().height = 130;
-        	//}
+        	ftabHost.getTabWidget().getChildAt(ctr).getLayoutParams().height = 110;
         }
 
-        //ftabHost.getTabWidget().getChildAt(2).getLayoutParams().width = 136;
-        //ftabHost.getTabWidget().getChildAt(2).getLayoutParams().height = 134;
+        homeButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				ftabHost.setCurrentTabByTag("Home");
+			}
+		});
     }
 
 }

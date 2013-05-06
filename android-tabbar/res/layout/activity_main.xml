@@ -1,8 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"> 
+ 	
+	<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical" >
-
+      
     <FrameLayout
         android:id="@+id/realtabcontent"
         android:layout_width="match_parent"
@@ -14,12 +18,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:background="@android:color/black">
-
-        <FrameLayout
-            android:id="@android:id/tabcontent"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0" />
+		
+			<FrameLayout
+        android:id="@android:id/tabcontent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0" />
 
     </android.support.v4.app.FragmentTabHost>
-</LinearLayout>
+
+	</LinearLayout>
+	
+	<Button
+      android:id="@+id/homebutton"
+      android:layout_gravity="bottom|center"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:background="@drawable/icon_home"
+  />
+
+</FrameLayout>
+
