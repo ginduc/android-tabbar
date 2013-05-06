@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#B20202"
+    android:background="@drawable/navbar"
     android:paddingTop="10sp">
 
     <TextView
